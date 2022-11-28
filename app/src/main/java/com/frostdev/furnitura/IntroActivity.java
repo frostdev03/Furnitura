@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -22,7 +23,8 @@ public class IntroActivity extends AppCompatActivity {
 
     IntroViewPagerAdapter introViewPagerAdapter;
     TabLayout tabIndicator;
-    Button btnNext, btnGetStarted;
+    Button btnGetStarted;
+    TextView tvNext;
     int position = 0;
     Animation btnAnim;
 
@@ -41,10 +43,8 @@ public class IntroActivity extends AppCompatActivity {
             finish();
         }
 
-        //getSupportActionBar().hide();
-
         tabIndicator = findViewById(R.id.tab_indicator);
-        btnNext = findViewById(R.id.btn_next);
+        tvNext = findViewById(R.id.tv_next);
         btnGetStarted = findViewById(R.id.btn_get_started);
         btnAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.btn_anim);
 
@@ -59,7 +59,7 @@ public class IntroActivity extends AppCompatActivity {
 
         tabIndicator.setupWithViewPager(screenPager);
 
-        btnNext.setOnClickListener(new View.OnClickListener() {
+        tvNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -120,7 +120,7 @@ public class IntroActivity extends AppCompatActivity {
     }
 
     private void loadLastScreen() {
-        btnNext.setVisibility(View.INVISIBLE);
+        tvNext.setVisibility(View.INVISIBLE);
         btnGetStarted.setVisibility(View.VISIBLE);
         tabIndicator.setVisibility(View.INVISIBLE);
 
